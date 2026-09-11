@@ -1,636 +1,1117 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Envelhecimento Ativo, Inclusão e Mobilidade Urbana">
-  <title>VivaCidade | Envelhecimento Ativo e Mobilidade</title>
+
+  <meta name="description" content="VivaCidade - Envelhecimento Ativo, Inclusão e Mobilidade Urbana.">
+
+  <title>VivaCidade | Cidade para Todos</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header class="header">
-    <div class="container nav">
+  <!-- ================= HEADER ================= -->
+
+  <header class="header" id="header">
+
+    <div class="container nav-container">
+
       <a href="#inicio" class="logo">
-        <span class="logo-icon">♿</span>
+        <span class="logo-icon">🏙️</span>
         <span>Viva<span>Cidade</span></span>
       </a>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Abrir menu"
+      >
+        ☰
+      </button>
 
-      <nav id="navMenu">
+      <nav class="nav" id="navMenu">
+
         <a href="#inicio">Início</a>
         <a href="#envelhecimento">Envelhecimento</a>
         <a href="#inclusao">Inclusão</a>
         <a href="#mobilidade">Mobilidade</a>
         <a href="#solucoes">Soluções</a>
-        <a href="#participar">Participe</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#ia" class="nav-ai">🤖 IA</a>
+
       </nav>
+
+      <button class="access-btn" id="accessBtn">
+        ⚙️
+      </button>
+
     </div>
+
   </header>
+
+
+  <!-- ================= PAINEL DE ACESSIBILIDADE ================= -->
+
+  <aside class="access-panel" id="accessPanel">
+
+    <h3>♿ Acessibilidade</h3>
+
+    <button id="increaseFont">
+      A+ Aumentar fonte
+    </button>
+
+    <button id="decreaseFont">
+      A− Diminuir fonte
+    </button>
+
+    <button id="contrastBtn">
+      ◐ Alto contraste
+    </button>
+
+    <button id="readingBtn">
+      📖 Modo leitura
+    </button>
+
+    <button id="resetAccess">
+      ↺ Restaurar
+    </button>
+
+  </aside>
+
+
+  <!-- ================= HERO ================= -->
 
   <main>
 
-    <!-- HERO -->
     <section class="hero" id="inicio">
+
       <div class="hero-overlay"></div>
 
       <div class="container hero-content">
-        <span class="tag">CIDADES PARA TODAS AS IDADES</span>
+
+        <div class="hero-badge">
+          🌎 Um futuro melhor começa na cidade
+        </div>
 
         <h1>
-          Uma cidade melhor para
-          <strong>todos.</strong>
+          Uma cidade melhor
+          <span>para todas as idades.</span>
         </h1>
 
         <p>
-          Envelhecimento ativo, inclusão social e mobilidade urbana:
-          três caminhos para construir cidades mais acessíveis,
-          humanas, seguras e independentes.
+          Envelhecimento ativo, inclusão e mobilidade urbana
+          para construir cidades mais humanas, acessíveis,
+          seguras e preparadas para o futuro.
         </p>
 
         <div class="hero-buttons">
-          <a href="#solucoes" class="btn primary">Descobrir soluções →</a>
-          <a href="#sobre" class="btn secondary">Conheça o projeto</a>
+
+          <a href="#solucoes" class="btn btn-primary">
+            Descobrir soluções →
+          </a>
+
+          <button class="btn btn-outline" id="heroAiBtn">
+            🤖 Conversar com a IA
+          </button>
+
         </div>
 
         <div class="hero-stats">
+
           <div>
-            <strong>01</strong>
-            <span>Envelhecimento ativo</span>
-          </div>
-          <div>
-            <strong>02</strong>
+            <strong>100%</strong>
             <span>Inclusão</span>
           </div>
+
           <div>
-            <strong>03</strong>
-            <span>Mobilidade</span>
+            <strong>24h</strong>
+            <span>Cidade ativa</span>
           </div>
+
+          <div>
+            <strong>∞</strong>
+            <span>Possibilidades</span>
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- SOBRE -->
+
+    <!-- ================= INTRO ================= -->
+
     <section class="section" id="sobre">
-      <div class="container about-grid">
-        <div>
-          <span class="section-label">POR QUE ISSO IMPORTA?</span>
-          <h2>Uma cidade acessível beneficia <span>todo mundo.</span></h2>
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">POR QUE ISSO IMPORTA?</span>
+
+          <h2>
+            A cidade deve funcionar
+            <span>para todos.</span>
+          </h2>
+
           <p>
-            Quando uma cidade possui calçadas adequadas, transporte acessível,
-            espaços públicos seguros e serviços inclusivos, ela se torna melhor
-            para pessoas idosas, pessoas com deficiência, crianças, gestantes,
-            ciclistas e toda a população.
-          </p>
-          <p>
-            O objetivo do envelhecimento ativo não é apenas viver mais,
-            mas viver com autonomia, participação, segurança e qualidade de vida.
+            Uma cidade inclusiva não é construída pensando
+            apenas em uma faixa etária. Ela precisa considerar
+            crianças, jovens, adultos, pessoas idosas e pessoas
+            com diferentes necessidades.
           </p>
 
-          <div class="highlight">
-            <span class="quote">“</span>
+        </div>
+
+
+        <div class="feature-grid">
+
+          <article class="feature-card">
+            <div class="feature-icon">👴</div>
+            <h3>Envelhecimento ativo</h3>
             <p>
-              Inclusão não significa criar uma cidade diferente para algumas
-              pessoas. Significa criar uma cidade que funcione para todas.
+              Criar oportunidades para que pessoas idosas
+              tenham autonomia, saúde e participação social.
             </p>
-          </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">♿</div>
+            <h3>Inclusão</h3>
+            <p>
+              Garantir que espaços e serviços possam ser
+              utilizados pelo maior número possível de pessoas.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🚌</div>
+            <h3>Mobilidade</h3>
+            <p>
+              Facilitar deslocamentos seguros, acessíveis,
+              confortáveis e sustentáveis.
+            </p>
+          </article>
+
         </div>
 
-        <div class="image-card">
-          <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=85" alt="Pessoas caminhando em uma cidade">
-          <div class="image-caption">
-            <strong>Cidade humana</strong>
-            <span>Espaços públicos que aproximam as pessoas.</span>
-          </div>
-        </div>
       </div>
+
     </section>
 
-    <!-- ENVELHECIMENTO -->
-    <section class="section light" id="envelhecimento">
+
+    <!-- ================= ENVELHECIMENTO ================= -->
+
+    <section class="section section-light" id="envelhecimento">
+
       <div class="container">
+
         <div class="section-heading">
-          <span class="section-label">01 — ENVELHECIMENTO ATIVO</span>
-          <h2>Envelhecer com <span>autonomia e participação.</span></h2>
+
+          <span class="eyebrow">ENVELHECIMENTO ATIVO</span>
+
+          <h2>
+            Envelhecer com
+            <span>autonomia e participação.</span>
+          </h2>
+
           <p>
-            Envelhecimento ativo significa criar condições para que as pessoas
-            possam continuar participando da sociedade, cuidando da saúde,
-            aprendendo e mantendo sua independência.
+            O envelhecimento ativo envolve saúde, segurança,
+            aprendizagem, convivência e participação na sociedade.
           </p>
+
         </div>
 
-        <div class="cards four">
+
+        <div class="cards-grid four">
 
           <article class="info-card">
-            <div class="card-icon">🏃</div>
+            <span>🏃</span>
             <h3>Vida ativa</h3>
             <p>
-              Incentivar caminhadas, atividades físicas, esportes e lazer
-              em espaços públicos seguros.
+              Incentivar caminhadas, atividades físicas,
+              lazer e contato com espaços públicos.
             </p>
           </article>
 
           <article class="info-card">
-            <div class="card-icon">🧠</div>
+            <span>❤️</span>
             <h3>Saúde e bem-estar</h3>
             <p>
-              Ampliar o acesso à prevenção, atendimento de saúde e atividades
-              que promovam qualidade de vida.
+              Facilitar o acesso à saúde, alimentação adequada,
+              lazer e prevenção.
             </p>
           </article>
 
           <article class="info-card">
-            <div class="card-icon">🤝</div>
+            <span>🤝</span>
             <h3>Participação social</h3>
             <p>
-              Criar oportunidades para que pessoas idosas participem de
-              projetos, eventos e decisões da comunidade.
+              Criar espaços para convivência, cultura,
+              voluntariado e participação comunitária.
             </p>
           </article>
 
           <article class="info-card">
-            <div class="card-icon">📚</div>
+            <span>📚</span>
             <h3>Aprendizagem</h3>
             <p>
-              Estimular cursos, tecnologia, cultura e novas experiências
-              durante todas as fases da vida.
+              Estimular novos conhecimentos e inclusão digital
+              durante toda a vida.
             </p>
           </article>
 
         </div>
 
-        <div class="large-image">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=85" alt="Pessoa idosa sorrindo">
-          <div class="large-image-text">
-            <span>ENVELHECIMENTO ATIVO</span>
-            <h3>Idade não deve limitar oportunidades.</h3>
+
+        <div class="image-feature">
+
+          <div class="image-feature-text">
+
+            <span class="eyebrow">CIDADE HUMANA</span>
+
+            <h3>
+              Uma cidade acessível
+              beneficia todas as gerações.
+            </h3>
+
+            <p>
+              Bancos em praças, calçadas adequadas,
+              transporte acessível, iluminação e espaços
+              verdes tornam a vida urbana melhor para todos.
+            </p>
+
           </div>
+
+          <div
+            class="image-feature-img"
+            style="background-image:url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=85')"
+          ></div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- INCLUSÃO -->
+
+    <!-- ================= INCLUSÃO ================= -->
+
     <section class="section" id="inclusao">
+
       <div class="container">
-        <div class="section-heading">
-          <span class="section-label">02 — INCLUSÃO</span>
-          <h2>Uma sociedade onde <span>todos pertencem.</span></h2>
-          <p>
-            Inclusão significa eliminar barreiras físicas, sociais, digitais
-            e culturais que dificultam a participação das pessoas.
-          </p>
-        </div>
 
-        <div class="inclusion-grid">
+        <div class="split-section">
 
-          <div class="inclusion-main">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=85" alt="Pessoa utilizando cadeira de rodas">
-            <div class="inclusion-overlay">
-              <span>ACESSIBILIDADE</span>
-              <h3>Direito de ir, vir e participar.</h3>
+          <div
+            class="split-image"
+            style="background-image:url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1000&q=85')"
+          ></div>
+
+          <div class="split-content">
+
+            <span class="eyebrow">INCLUSÃO</span>
+
+            <h2>
+              Acessibilidade não é
+              <span>opcional.</span>
+            </h2>
+
+            <p>
+              Uma cidade verdadeiramente inclusiva elimina
+              barreiras físicas, sociais e digitais.
+            </p>
+
+            <div class="inclusion-list">
+
+              <div class="inclusion-item">
+                <span>♿</span>
+                <div>
+                  <h3>Calçadas acessíveis</h3>
+                  <p>Espaço adequado, piso regular e rampas.</p>
+                </div>
+              </div>
+
+              <div class="inclusion-item">
+                <span>🔊</span>
+                <div>
+                  <h3>Comunicação acessível</h3>
+                  <p>Informações visuais, sonoras e simples.</p>
+                </div>
+              </div>
+
+              <div class="inclusion-item">
+                <span>🚌</span>
+                <div>
+                  <h3>Transporte inclusivo</h3>
+                  <p>Veículos e pontos acessíveis.</p>
+                </div>
+              </div>
+
+              <div class="inclusion-item">
+                <span>📱</span>
+                <div>
+                  <h3>Inclusão digital</h3>
+                  <p>Serviços digitais simples e acessíveis.</p>
+                </div>
+              </div>
+
             </div>
+
           </div>
 
-          <div class="inclusion-list">
-
-            <div class="inclusion-item">
-              <span>01</span>
-              <div>
-                <h3>Acessibilidade física</h3>
-                <p>Rampas, elevadores, calçadas adequadas, pisos táteis e banheiros acessíveis.</p>
-              </div>
-            </div>
-
-            <div class="inclusion-item">
-              <span>02</span>
-              <div>
-                <h3>Acessibilidade digital</h3>
-                <p>Sites e aplicativos fáceis de utilizar por diferentes públicos.</p>
-              </div>
-            </div>
-
-            <div class="inclusion-item">
-              <span>03</span>
-              <div>
-                <h3>Combate ao preconceito</h3>
-                <p>Educação e conscientização para combater o preconceito e a discriminação.</p>
-              </div>
-            </div>
-
-            <div class="inclusion-item">
-              <span>04</span>
-              <div>
-                <h3>Participação</h3>
-                <p>Garantir que diferentes grupos tenham voz nas decisões da cidade.</p>
-              </div>
-            </div>
-
-          </div>
         </div>
+
       </div>
+
     </section>
 
-    <!-- MOBILIDADE -->
-    <section class="section dark" id="mobilidade">
+
+    <!-- ================= MOBILIDADE ================= -->
+
+    <section class="dark-section" id="mobilidade">
+
       <div class="container">
-        <div class="section-heading light-heading">
-          <span class="section-label">03 — MOBILIDADE URBANA</span>
-          <h2>Deslocar-se com <span>segurança e liberdade.</span></h2>
+
+        <div class="section-heading dark-heading">
+
+          <span class="eyebrow">MOBILIDADE URBANA</span>
+
+          <h2>
+            Mover-se pela cidade
+            <span>deve ser fácil.</span>
+          </h2>
+
           <p>
-            Mobilidade urbana de qualidade conecta pessoas a escolas, hospitais,
-            empregos, lazer e serviços essenciais.
+            Mobilidade urbana é muito mais do que carros.
+            É garantir que as pessoas consigam chegar aos
+            lugares com segurança e autonomia.
           </p>
+
         </div>
+
 
         <div class="mobility-grid">
 
           <article class="mobility-card">
-            <div class="mobility-number">01</div>
-            <div class="mobility-icon">🚌</div>
+            <div>🚶</div>
+            <h3>Pedestres</h3>
+            <p>
+              Calçadas contínuas, iluminação, travessias
+              seguras e bancos para descanso.
+            </p>
+          </article>
+
+          <article class="mobility-card">
+            <div>🚌</div>
             <h3>Transporte público</h3>
-            <p>Ônibus acessíveis, pontos seguros, informações claras e horários confiáveis.</p>
+            <p>
+              Veículos acessíveis, pontos bem localizados
+              e informações claras.
+            </p>
           </article>
 
           <article class="mobility-card">
-            <div class="mobility-number">02</div>
-            <div class="mobility-icon">🚶</div>
-            <h3>Calçadas</h3>
-            <p>Calçadas contínuas, iluminadas, sem obstáculos e adequadas para diferentes pessoas.</p>
+            <div>🚲</div>
+            <h3>Bicicletas</h3>
+            <p>
+              Ciclovias conectadas e espaços seguros
+              para bicicletas.
+            </p>
           </article>
 
           <article class="mobility-card">
-            <div class="mobility-number">03</div>
-            <div class="mobility-icon">🚲</div>
-            <h3>Ciclomobilidade</h3>
-            <p>Rotas seguras para bicicletas e integração com o transporte público.</p>
-          </article>
-
-          <article class="mobility-card">
-            <div class="mobility-number">04</div>
-            <div class="mobility-icon">🚦</div>
+            <div>🚦</div>
             <h3>Segurança viária</h3>
-            <p>Travessias seguras, sinalização adequada e redução de riscos para pedestres.</p>
+            <p>
+              Faixas de pedestres, sinalização adequada
+              e redução de velocidades perigosas.
+            </p>
           </article>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- PROBLEMAS -->
+
+    <!-- ================= PROBLEMAS ================= -->
+
     <section class="section" id="problemas">
+
       <div class="container">
+
         <div class="section-heading">
-          <span class="section-label">O DESAFIO</span>
-          <h2>O que ainda podemos <span>melhorar?</span></h2>
-          <p>
-            Muitos problemas urbanos podem dificultar a autonomia e a participação
-            da população.
-          </p>
+
+          <span class="eyebrow">COMO PODEMOS MELHORAR?</span>
+
+          <h2>
+            Problemas urbanos
+            <span>e suas soluções.</span>
+          </h2>
+
         </div>
+
 
         <div class="problem-grid">
 
           <article class="problem-card">
-            <span class="problem-icon">⚠️</span>
-            <h3>Calçadas ruins</h3>
-            <p>Buracos, obstáculos e falta de manutenção podem dificultar a circulação.</p>
-            <div class="solution-mini">
-              <strong>Como melhorar:</strong>
-              <span>Manutenção contínua e padrões de acessibilidade.</span>
+
+            <div class="problem-number">01</div>
+
+            <h3>Calçadas quebradas</h3>
+
+            <p>
+              Dificultam a circulação de idosos,
+              cadeirantes e pessoas com mobilidade reduzida.
+            </p>
+
+            <div class="solution-tag">
+              ✓ Recuperar e padronizar calçadas
             </div>
+
           </article>
 
-          <article class="problem-card">
-            <span class="problem-icon">🚌</span>
-            <h3>Transporte inacessível</h3>
-            <p>Veículos e pontos sem estrutura adequada podem limitar deslocamentos.</p>
-            <div class="solution-mini">
-              <strong>Como melhorar:</strong>
-              <span>Veículos acessíveis e treinamento dos profissionais.</span>
-            </div>
-          </article>
 
           <article class="problem-card">
-            <span class="problem-icon">🌙</span>
+
+            <div class="problem-number">02</div>
+
+            <h3>Pouca arborização</h3>
+
+            <p>
+              A ausência de árvores aumenta o calor
+              e reduz o conforto dos espaços públicos.
+            </p>
+
+            <div class="solution-tag">
+              ✓ Criar corredores verdes
+            </div>
+
+          </article>
+
+
+          <article class="problem-card">
+
+            <div class="problem-number">03</div>
+
+            <h3>Transporte insuficiente</h3>
+
+            <p>
+              Linhas e horários inadequados podem dificultar
+              o acesso a serviços importantes.
+            </p>
+
+            <div class="solution-tag">
+              ✓ Melhorar rotas e horários
+            </div>
+
+          </article>
+
+
+          <article class="problem-card">
+
+            <div class="problem-number">04</div>
+
             <h3>Falta de iluminação</h3>
-            <p>Áreas pouco iluminadas podem aumentar a sensação de insegurança.</p>
-            <div class="solution-mini">
-              <strong>Como melhorar:</strong>
-              <span>Iluminação eficiente em ruas, praças e pontos de ônibus.</span>
-            </div>
-          </article>
 
-          <article class="problem-card">
-            <span class="problem-icon">🏙️</span>
-            <h3>Poucos espaços públicos</h3>
-            <p>A falta de áreas de convivência reduz oportunidades de lazer e interação.</p>
-            <div class="solution-mini">
-              <strong>Como melhorar:</strong>
-              <span>Criar parques, praças e áreas de convivência.</span>
+            <p>
+              Ruas mal iluminadas reduzem a sensação
+              de segurança.
+            </p>
+
+            <div class="solution-tag">
+              ✓ Melhorar iluminação pública
             </div>
+
           </article>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- SOLUÇÕES -->
-    <section class="section light" id="solucoes">
+
+    <!-- ================= SOLUÇÕES ================= -->
+
+    <section class="section section-light" id="solucoes">
+
       <div class="container">
+
         <div class="section-heading">
-          <span class="section-label">SOLUÇÕES</span>
-          <h2>Como podemos construir uma <span>cidade melhor?</span></h2>
-          <p>
-            Pequenas e grandes mudanças podem transformar a experiência das
-            pessoas nos espaços urbanos.
-          </p>
+
+          <span class="eyebrow">SOLUÇÕES</span>
+
+          <h2>
+            Seis caminhos para
+            <span>uma cidade melhor.</span>
+          </h2>
+
         </div>
 
-        <div class="solutions-grid">
 
-          <div class="solution">
-            <div class="solution-top">
-              <span>01</span>
-              <div>🚶</div>
-            </div>
-            <h3>Calçadas acessíveis</h3>
-            <p>
-              Criar calçadas niveladas, amplas, bem iluminadas e livres de obstáculos.
-            </p>
-          </div>
+        <div class="solution-grid">
 
-          <div class="solution">
-            <div class="solution-top">
-              <span>02</span>
-              <div>🚌</div>
-            </div>
-            <h3>Transporte inclusivo</h3>
-            <p>
-              Modernizar ônibus, pontos e sistemas de informação para atender diferentes necessidades.
-            </p>
-          </div>
-
-          <div class="solution">
-            <div class="solution-top">
-              <span>03</span>
-              <div>🌳</div>
-            </div>
+          <article class="solution">
+            <span>🌳</span>
             <h3>Mais áreas verdes</h3>
             <p>
-              Criar espaços arborizados para lazer, descanso, atividade física e convivência.
+              Praças, árvores, jardins e espaços de convivência.
             </p>
-          </div>
+          </article>
 
-          <div class="solution">
-            <div class="solution-top">
-              <span>04</span>
-              <div>💡</div>
-            </div>
+          <article class="solution">
+            <span>♿</span>
+            <h3>Acessibilidade universal</h3>
+            <p>
+              Remover barreiras e melhorar a circulação.
+            </p>
+          </article>
+
+          <article class="solution">
+            <span>🚍</span>
+            <h3>Transporte eficiente</h3>
+            <p>
+              Transporte público conectado e acessível.
+            </p>
+          </article>
+
+          <article class="solution">
+            <span>💡</span>
             <h3>Iluminação inteligente</h3>
             <p>
-              Melhorar a iluminação de ruas, praças, ciclovias e pontos de transporte.
+              Mais segurança e eficiência nos espaços públicos.
             </p>
-          </div>
+          </article>
 
-          <div class="solution">
-            <div class="solution-top">
-              <span>05</span>
-              <div>📱</div>
-            </div>
-            <h3>Tecnologia acessível</h3>
+          <article class="solution">
+            <span>🏞️</span>
+            <h3>Espaços de convivência</h3>
             <p>
-              Desenvolver aplicativos e serviços digitais simples e acessíveis.
+              Locais para cultura, esporte e interação.
             </p>
-          </div>
+          </article>
 
-          <div class="solution">
-            <div class="solution-top">
-              <span>06</span>
-              <div>🗣️</div>
-            </div>
-            <h3>Ouvir a população</h3>
+          <article class="solution">
+            <span>📲</span>
+            <h3>Cidade conectada</h3>
             <p>
-              Criar canais para que moradores possam apontar problemas e sugerir melhorias.
+              Tecnologia para facilitar serviços e participação.
             </p>
-          </div>
+          </article>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- GALERIA -->
-    <section class="section gallery-section">
+
+    <!-- ================= INDICADORES ================= -->
+
+    <section class="section indicators">
+
       <div class="container">
+
         <div class="section-heading">
-          <span class="section-label">CIDADES PARA PESSOAS</span>
-          <h2>Imagine uma cidade <span>mais humana.</span></h2>
+
+          <span class="eyebrow">INDICADORES</span>
+
+          <h2>
+            Uma cidade preparada
+            <span>pensa no futuro.</span>
+          </h2>
+
         </div>
+
+
+        <div class="indicator-grid">
+
+          <div class="indicator">
+            <strong>01</strong>
+            <h3>Acessibilidade</h3>
+            <p>Espaços públicos acessíveis.</p>
+          </div>
+
+          <div class="indicator">
+            <strong>02</strong>
+            <h3>Autonomia</h3>
+            <p>Liberdade para circular e participar.</p>
+          </div>
+
+          <div class="indicator">
+            <strong>03</strong>
+            <h3>Segurança</h3>
+            <p>Ruas e transportes mais seguros.</p>
+          </div>
+
+          <div class="indicator">
+            <strong>04</strong>
+            <h3>Participação</h3>
+            <p>Comunidade envolvida nas decisões.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= GALERIA ================= -->
+
+    <section class="section section-light" id="galeria">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">INSPIRAÇÃO</span>
+
+          <h2>
+            Como pode ser a
+            <span>cidade do futuro?</span>
+          </h2>
+
+        </div>
+
 
         <div class="gallery">
-          <div class="gallery-item large">
-            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85" alt="Cidade moderna">
-            <div class="gallery-label">Arquitetura acessível</div>
+
+          <div
+            class="gallery-item large"
+            style="background-image:url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=85')"
+          >
+            <span>Cidade conectada</span>
           </div>
 
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85" alt="Parque urbano">
-            <div class="gallery-label">Áreas verdes</div>
+          <div
+            class="gallery-item"
+            style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1000&q=85')"
+          >
+            <span>Mobilidade</span>
           </div>
 
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=85" alt="Transporte público">
-            <div class="gallery-label">Transporte público</div>
+          <div
+            class="gallery-item"
+            style="background-image:url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1000&q=85')"
+          >
+            <span>Espaços públicos</span>
           </div>
 
-          <div class="gallery-item wide">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=85" alt="Espaço urbano">
-            <div class="gallery-label">Espaços de convivência</div>
+          <div
+            class="gallery-item"
+            style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=85')"
+          >
+            <span>Áreas verdes</span>
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- PILARES -->
-    <section class="section" id="pilares">
+
+    <!-- ================= CHECKLIST ================= -->
+
+    <section class="section checklist-section" id="checklist">
+
       <div class="container">
+
         <div class="section-heading">
-          <span class="section-label">NOSSA VISÃO</span>
-          <h2>Quatro pilares para uma cidade <span>mais inclusiva.</span></h2>
-        </div>
 
-        <div class="pillar-list">
+          <span class="eyebrow">INTERAÇÃO</span>
 
-          <div class="pillar">
-            <div class="pillar-number">01</div>
-            <div>
-              <h3>Acessibilidade</h3>
-              <p>Remover barreiras para garantir que todos possam utilizar os espaços e serviços da cidade.</p>
-            </div>
-            <span>→</span>
-          </div>
+          <h2>
+            Sua cidade é
+            <span>acessível?</span>
+          </h2>
 
-          <div class="pillar">
-            <div class="pillar-number">02</div>
-            <div>
-              <h3>Autonomia</h3>
-              <p>Permitir que as pessoas possam se deslocar e realizar suas atividades com independência.</p>
-            </div>
-            <span>→</span>
-          </div>
-
-          <div class="pillar">
-            <div class="pillar-number">03</div>
-            <div>
-              <h3>Participação</h3>
-              <p>Valorizar a opinião dos moradores na criação e melhoria das políticas urbanas.</p>
-            </div>
-            <span>→</span>
-          </div>
-
-          <div class="pillar">
-            <div class="pillar-number">04</div>
-            <div>
-              <h3>Segurança</h3>
-              <p>Construir ambientes urbanos seguros, confortáveis e preparados para diferentes necessidades.</p>
-            </div>
-            <span>→</span>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CHECKLIST -->
-    <section class="section checklist-section">
-      <div class="container checklist-grid">
-        <div>
-          <span class="section-label">CHECKLIST URBANO</span>
-          <h2>Como está a sua <span>cidade?</span></h2>
           <p>
-            Marque os itens que você considera presentes na sua região.
-            No final, veja seu resultado.
+            Marque os itens que existem no seu bairro.
           </p>
+
         </div>
 
-        <div class="checklist">
+
+        <div class="checklist-box">
+
           <label>
             <input type="checkbox" class="check">
-            <span>Existem calçadas acessíveis?</span>
+            Calçadas em boas condições
           </label>
 
           <label>
             <input type="checkbox" class="check">
-            <span>Há transporte público acessível?</span>
+            Rampas de acessibilidade
           </label>
 
           <label>
             <input type="checkbox" class="check">
-            <span>Existem espaços verdes próximos?</span>
+            Faixas de pedestres
           </label>
 
           <label>
             <input type="checkbox" class="check">
-            <span>As ruas possuem boa iluminação?</span>
+            Transporte público acessível
           </label>
 
           <label>
             <input type="checkbox" class="check">
-            <span>Existem faixas de pedestres seguras?</span>
+            Boa iluminação
           </label>
 
           <label>
             <input type="checkbox" class="check">
-            <span>A população participa das decisões?</span>
+            Áreas verdes e espaços de convivência
           </label>
 
-          <button class="btn primary full" id="checkResult">Ver resultado</button>
+          <button class="btn btn-primary" id="checkResult">
+            Avaliar minha cidade
+          </button>
 
           <div class="result" id="result"></div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- PARTICIPE -->
-    <section class="cta" id="participar">
-      <div class="container cta-content">
-        <span class="section-label">FAÇA PARTE DA MUDANÇA</span>
-        <h2>Qual cidade você quer deixar para o futuro?</h2>
-        <p>
-          Uma cidade inclusiva começa quando as pessoas percebem os problemas,
-          compartilham ideias e participam das soluções.
-        </p>
 
-        <button class="btn white" id="ideaBtn">Enviar uma ideia →</button>
+    <!-- ================= IA ================= -->
+
+    <section class="ai-section" id="ia">
+
+      <div class="container">
+
+        <div class="ai-intro">
+
+          <span class="eyebrow">TECNOLOGIA</span>
+
+          <h2>
+            Conheça o
+            <span>VivaIA 🤖</span>
+          </h2>
+
+          <p>
+            Converse com nosso assistente e tire dúvidas
+            sobre envelhecimento ativo, inclusão, acessibilidade
+            e mobilidade urbana.
+          </p>
+
+        </div>
+
+
+        <div class="chat-container">
+
+          <div class="chat-header">
+
+            <div class="ai-avatar">
+              🤖
+            </div>
+
+            <div>
+              <strong>VivaIA</strong>
+              <small>Assistente do projeto</small>
+            </div>
+
+            <div class="online">
+              ● Online
+            </div>
+
+          </div>
+
+
+          <div class="chat-messages" id="chatMessages">
+
+            <div class="message ai-message">
+
+              <div class="message-avatar">🤖</div>
+
+              <div class="message-content">
+                Olá! 👋 Sou a VivaIA. Posso explicar temas
+                como acessibilidade, envelhecimento ativo,
+                mobilidade urbana e soluções para cidades.
+                <br><br>
+                O que você gostaria de saber?
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="quick-questions">
+
+            <button data-question="O que é envelhecimento ativo?">
+              👴 Envelhecimento ativo
+            </button>
+
+            <button data-question="O que é acessibilidade?">
+              ♿ Acessibilidade
+            </button>
+
+            <button data-question="Como melhorar a mobilidade urbana?">
+              🚌 Mobilidade
+            </button>
+
+            <button data-question="Como tornar uma cidade mais inclusiva?">
+              🌎 Inclusão
+            </button>
+
+          </div>
+
+
+          <form class="chat-form" id="chatForm">
+
+            <input
+              type="text"
+              id="chatInput"
+              placeholder="Digite sua pergunta..."
+              autocomplete="off"
+            >
+
+            <button type="submit">
+              ➤
+            </button>
+
+          </form>
+
+          <small class="ai-disclaimer">
+            A VivaIA desta versão funciona localmente no navegador
+            e responde com uma base de conhecimento sobre o projeto.
+          </small>
+
+        </div>
+
       </div>
+
     </section>
 
-    <!-- MODAL -->
-    <div class="modal" id="ideaModal">
-      <div class="modal-content">
-        <button class="close" id="closeModal">×</button>
-        <span class="section-label">SUA IDEIA</span>
-        <h2>Como podemos melhorar?</h2>
-        <p>Compartilhe uma sugestão para tornar a cidade mais acessível e inclusiva.</p>
 
-        <form id="ideaForm">
-          <input type="text" id="ideaName" placeholder="Seu nome" required>
-          <textarea id="ideaText" placeholder="Escreva sua ideia..." rows="5" required></textarea>
-          <button type="submit" class="btn primary full">Enviar ideia</button>
-        </form>
+    <!-- ================= FAQ ================= -->
 
-        <div class="success" id="success">
-          ✓ Obrigado! Sua ideia foi registrada neste site.
+    <section class="section" id="faq">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">DÚVIDAS</span>
+
+          <h2>
+            Perguntas
+            <span>frequentes.</span>
+          </h2>
+
         </div>
+
+
+        <div class="faq">
+
+          <details>
+            <summary>O que significa envelhecimento ativo?</summary>
+            <p>
+              É uma abordagem que busca proporcionar saúde,
+              participação, segurança e qualidade de vida
+              ao longo do envelhecimento.
+            </p>
+          </details>
+
+          <details>
+            <summary>O que é uma cidade inclusiva?</summary>
+            <p>
+              É uma cidade que procura eliminar barreiras
+              e permitir que pessoas diferentes participem
+              da vida urbana.
+            </p>
+          </details>
+
+          <details>
+            <summary>Por que a mobilidade urbana é importante?</summary>
+            <p>
+              Porque permite que as pessoas tenham acesso
+              a trabalho, educação, saúde, lazer e convivência.
+            </p>
+          </details>
+
+          <details>
+            <summary>Como posso ajudar minha cidade?</summary>
+            <p>
+              Você pode observar problemas, participar de
+              decisões comunitárias, preservar espaços públicos
+              e apresentar propostas ao poder público.
+            </p>
+          </details>
+
+        </div>
+
       </div>
-    </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta-section">
+
+      <div class="container">
+
+        <div class="cta-box">
+
+          <span class="eyebrow">PARTICIPE</span>
+
+          <h2>
+            Qual cidade você quer
+            deixar para o futuro?
+          </h2>
+
+          <p>
+            Pequenas ideias podem ajudar a transformar
+            grandes espaços.
+          </p>
+
+          <button class="btn btn-white" id="ideaBtn">
+            💡 Enviar uma ideia
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
 
   </main>
 
-  <footer>
+
+  <!-- ================= MODAL ================= -->
+
+  <div class="modal" id="ideaModal">
+
+    <div class="modal-content">
+
+      <button class="close-modal" id="closeModal">
+        ×
+      </button>
+
+      <div class="modal-icon">💡</div>
+
+      <h2>Sua ideia importa</h2>
+
+      <p>
+        Conte uma ideia para melhorar sua cidade.
+      </p>
+
+      <form id="ideaForm">
+
+        <input
+          type="text"
+          id="ideaName"
+          placeholder="Seu nome"
+          required
+        >
+
+        <textarea
+          id="ideaText"
+          placeholder="Qual melhoria você gostaria de ver?"
+          rows="5"
+          required
+        ></textarea>
+
+        <button type="submit" class="btn btn-primary">
+          Enviar ideia
+        </button>
+
+      </form>
+
+      <div class="success" id="success">
+        ✅ Obrigado pela sua contribuição!
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="footer">
+
     <div class="container footer-grid">
 
       <div>
-        <a href="#inicio" class="logo footer-logo">
-          <span class="logo-icon">♿</span>
+
+        <a href="#inicio" class="logo">
+          <span class="logo-icon">🏙️</span>
           <span>Viva<span>Cidade</span></span>
         </a>
+
         <p>
-          Um projeto educativo sobre envelhecimento ativo,
-          inclusão e mobilidade urbana.
+          Envelhecimento Ativo,
+          Inclusão e Mobilidade Urbana.
         </p>
+
       </div>
 
+
       <div>
-        <h4>Explorar</h4>
-        <a href="#envelhecimento">Envelhecimento ativo</a>
+
+        <h3>Navegação</h3>
+
+        <a href="#envelhecimento">Envelhecimento</a>
         <a href="#inclusao">Inclusão</a>
-        <a href="#mobilidade">Mobilidade urbana</a>
+        <a href="#mobilidade">Mobilidade</a>
         <a href="#solucoes">Soluções</a>
+
       </div>
 
+
       <div>
-        <h4>Aprenda</h4>
-        <a href="#problemas">Desafios</a>
-        <a href="#pilares">Pilares</a>
-        <a href="#participar">Participação</a>
+
+        <h3>Interação</h3>
+
+        <a href="#ia">🤖 VivaIA</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#faq">Perguntas</a>
+
       </div>
 
     </div>
+
 
     <div class="footer-bottom">
-      <span>© 2026 VivaCidade</span>
-      <span>Envelhecimento Ativo • Inclusão • Mobilidade Urbana</span>
+
+      © 2026 VivaCidade — Projeto educativo.
+
     </div>
+
   </footer>
 
-  <button class="top-btn" id="topBtn">↑</button>
+
+  <!-- ================= BOTÃO TOPO ================= -->
+
+  <button class="top-btn" id="topBtn">
+    ↑
+  </button>
+
 
   <script src="script.js"></script>
+
 </body>
 </html>
