@@ -3,7 +3,8 @@
    IDIOMA + IDEIAS PARA A CIDADE
 ===================================== */
 
-let currentLanguage = localStorage.getItem("vivacidadeLanguage") || "pt";
+let currentLanguage =
+  localStorage.getItem("vivacidadeLanguage") || "pt";
 
 /* =====================================
    MENU MOBILE
@@ -15,16 +16,15 @@ const navMenu = document.getElementById("navMenu");
 if (menuBtn && navMenu) {
   menuBtn.addEventListener("click", () => {
     navMenu.classList.toggle("active");
-    menuBtn.textContent = navMenu.classList.contains("active") ? "✕" : "☰";
   });
 
-  document.querySelectorAll(".nav a").forEach(link => {
+  navMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("active");
-      menuBtn.textContent = "☰";
     });
   });
 }
+
 
 /* =====================================
    BOTÃO VOLTAR AO TOPO
@@ -32,15 +32,17 @@ if (menuBtn && navMenu) {
 
 const topBtn = document.getElementById("topBtn");
 
-if (topBtn) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 500) {
-      topBtn.classList.add("show");
-    } else {
-      topBtn.classList.remove("show");
-    }
-  });
+window.addEventListener("scroll", () => {
+  if (!topBtn) return;
 
+  if (window.scrollY > 500) {
+    topBtn.classList.add("show");
+  } else {
+    topBtn.classList.remove("show");
+  }
+});
+
+if (topBtn) {
   topBtn.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
@@ -48,6 +50,7 @@ if (topBtn) {
     });
   });
 }
+
 
 /* =====================================
    ACESSIBILIDADE
@@ -102,6 +105,7 @@ if (resetAccess) {
   });
 }
 
+
 /* =====================================
    BOTÃO DE IDIOMA
 ===================================== */
@@ -116,12 +120,14 @@ if (accessBtn && accessBtn.parentNode) {
   accessBtn.parentNode.insertBefore(languageBtn, accessBtn);
 }
 
+
 /* =====================================
    TRADUÇÕES
 ===================================== */
 
 const translations = {
 
+  /* HEADER */
   "Início": "Home",
   "Envelhecimento": "Aging",
   "Inclusão": "Inclusion",
@@ -129,504 +135,217 @@ const translations = {
   "Soluções": "Solutions",
   "Checklist": "Checklist",
 
-  "♿ Acessibilidade": "♿ Accessibility",
-  "A+ Aumentar fonte": "A+ Increase font",
-  "A− Diminuir fonte": "A− Decrease font",
-  "◐ Alto contraste": "◐ High contrast",
-  "📖 Modo leitura": "📖 Reading mode",
-  "↺ Restaurar": "↺ Reset",
+  /* HERO */
+  "Cidade para Todos": "A City for Everyone",
+  "Uma cidade melhor começa quando todos podem participar.":
+    "A better city begins when everyone can participate.",
+  "Descubra como tornar sua cidade mais acessível, segura, inclusiva e preparada para o futuro.":
+    "Discover how to make your city more accessible, safe, inclusive and prepared for the future.",
+  "Conheça o projeto": "Discover the project",
+  "Ver soluções": "See solutions",
 
-  "🌎 Um futuro melhor começa na cidade":
-    "🌎 A better future starts in the city",
+  /* SOBRE */
+  "SOBRE O PROJETO": "ABOUT THE PROJECT",
+  "Uma cidade pensada para pessoas":
+    "A city designed for people",
+  "O VivaCidade apresenta ideias e soluções para construir espaços urbanos mais acessíveis, seguros e confortáveis para todos.":
+    "VivaCidade presents ideas and solutions to build urban spaces that are more accessible, safe and comfortable for everyone.",
 
-  "Uma cidade melhor":
-    "A better city",
+  /* ENVELHECIMENTO */
+  "ENVELHECIMENTO": "AGING",
+  "Envelhecer também faz parte da cidade":
+    "Aging is also part of the city",
+  "Cidades precisam estar preparadas para pessoas de todas as idades.":
+    "Cities need to be prepared for people of all ages.",
 
-  "para todas as idades.":
-    "for all ages.",
+  /* INCLUSÃO */
+  "INCLUSÃO": "INCLUSION",
+  "Inclusão significa garantir que todos possam participar":
+    "Inclusion means ensuring everyone can participate",
 
-  "Envelhecimento ativo, inclusão e mobilidade urbana para construir cidades mais humanas, acessíveis, seguras e preparadas para o futuro.":
-    "Active aging, inclusion and urban mobility to build cities that are more human, accessible, safe and prepared for the future.",
+  /* MOBILIDADE */
+  "MOBILIDADE": "MOBILITY",
+  "Mobilidade para todos": "Mobility for everyone",
+  "Uma cidade acessível facilita a vida de pessoas com diferentes necessidades.":
+    "An accessible city makes life easier for people with different needs.",
 
-  "Descobrir soluções →":
-    "Discover solutions →",
+  /* PROBLEMAS */
+  "PROBLEMAS": "PROBLEMS",
+  "Problemas urbanos que precisam de atenção":
+    "Urban problems that need attention",
 
-  "🤖 Conversar com a IA":
-    "🤖 Talk to AI",
+  /* SOLUÇÕES */
+  "SOLUÇÕES": "SOLUTIONS",
+  "Soluções que podem transformar a cidade":
+    "Solutions that can transform the city",
 
-  "Inclusão":
-    "Inclusion",
+  /* GALERIA */
+  "GALERIA": "GALLERY",
 
-  "Cidade ativa":
-    "Active city",
+  /* CHECKLIST */
+  "CHECKLIST": "CHECKLIST",
+  "Sua cidade está preparada?": "Is your city prepared?",
+  "Verificar minha cidade": "Check my city",
 
-  "Possibilidades":
-    "Possibilities",
+  /* IA */
+  "VivaIA": "VivaAI",
+  "Assistente inteligente do VivaCidade":
+    "VivaCidade's intelligent assistant",
+  "Pergunte qualquer coisa sobre acessibilidade, inclusão e cidade.":
+    "Ask anything about accessibility, inclusion and cities.",
+  "Olá! 👋 Sou a VivaIA. Posso ajudar você com dúvidas sobre acessibilidade, inclusão, mobilidade e melhorias para a cidade.":
+    "Hello! 👋 I'm VivaAI. I can help you with questions about accessibility, inclusion, mobility and city improvements.",
 
-  "POR QUE ISSO IMPORTA?":
-    "WHY DOES IT MATTER?",
+  /* FAQ */
+  "PERGUNTAS FREQUENTES": "FREQUENTLY ASKED QUESTIONS",
+  "Perguntas": "Questions",
 
-  "A cidade deve funcionar":
-    "The city should work",
+  /* CTA */
+  "Sua ideia pode melhorar a cidade":
+    "Your idea can improve the city",
+  "Compartilhe uma sugestão de melhoria para sua cidade.":
+    "Share a suggestion for improving your city.",
+  "Enviar minha ideia": "Send my idea",
 
-  "para todos.":
-    "for everyone.",
+  /* MODAL */
+  "Sua ideia importa": "Your idea matters",
+  "Conte uma ideia para melhorar sua cidade.":
+    "Tell us an idea to improve your city.",
+  "Seu nome": "Your name",
+  "Qual melhoria você gostaria de ver?":
+    "What improvement would you like to see?",
+  "Enviar ideia": "Send idea",
+  "✅ Obrigado pela sua contribuição!":
+    "✅ Thank you for your contribution!",
 
-  "Uma cidade inclusiva não é construída pensando apenas em uma faixa etária. Ela precisa considerar crianças, jovens, adultos, pessoas idosas e pessoas com diferentes necessidades.":
-    "An inclusive city is not designed for only one age group. It should consider children, young people, adults, older people and people with different needs.",
+  /* IDEIAS PARA A PREFEITURA */
+  "IDEIAS PARA A PREFEITURA":
+    "IDEAS FOR CITY HALL",
 
-  "Envelhecimento ativo":
-    "Active aging",
+  "Propostas que podem ser apresentadas":
+    "Proposals that can be presented",
 
-  "Criar oportunidades para que pessoas idosas tenham autonomia, saúde e participação social.":
-    "Create opportunities for older people to have autonomy, health and social participation.",
+  "à prefeitura.":
+    "to city hall.",
 
-  "Garantir que espaços e serviços possam ser utilizados pelo maior número possível de pessoas.":
-    "Ensure that spaces and services can be used by as many people as possible.",
+  "Pequenas melhorias podem tornar a cidade mais acessível, segura e confortável para diferentes pessoas.":
+    "Small improvements can make the city more accessible, safe and comfortable for different people.",
 
-  "Facilitar deslocamentos seguros, acessíveis, confortáveis e sustentáveis.":
-    "Make travel safe, accessible, comfortable and sustainable.",
+  "Semáforos sonoros":
+    "Audio traffic lights",
 
-  "ENVELHECIMENTO ATIVO":
-    "ACTIVE AGING",
+  "Instalar sinais sonoros para ajudar pessoas com deficiência visual durante a travessia das ruas.":
+    "Install audible signals to help people with visual impairments cross streets.",
 
-  "Envelhecer com":
-    "Aging with",
+  "Rampas acessíveis":
+    "Accessible ramps",
 
-  "autonomia e participação.":
-    "autonomy and participation.",
-
-  "O envelhecimento ativo envolve saúde, segurança, aprendizagem, convivência e participação na sociedade.":
-    "Active aging involves health, safety, learning, social connection and participation in society.",
-
-  "Vida ativa":
-    "Active life",
-
-  "Incentivar caminhadas, atividades físicas, lazer e contato com espaços públicos.":
-    "Encourage walking, physical activities, leisure and contact with public spaces.",
-
-  "Saúde e bem-estar":
-    "Health and well-being",
-
-  "Facilitar o acesso à saúde, alimentação adequada, lazer e prevenção.":
-    "Facilitate access to healthcare, adequate nutrition, leisure and prevention.",
-
-  "Participação social":
-    "Social participation",
-
-  "Criar espaços para convivência, cultura, voluntariado e participação comunitária.":
-    "Create spaces for social interaction, culture, volunteering and community participation.",
-
-  "Aprendizagem":
-    "Learning",
-
-  "Estimular novos conhecimentos e inclusão digital durante toda a vida.":
-    "Encourage new knowledge and digital inclusion throughout life.",
-
-  "CIDADE HUMANA":
-    "HUMAN CITY",
-
-  "Uma cidade acessível beneficia todas as gerações.":
-    "An accessible city benefits every generation.",
-
-  "Bancos em praças, calçadas adequadas, transporte acessível, iluminação e espaços verdes tornam a vida urbana melhor para todos.":
-    "Benches in parks, proper sidewalks, accessible transportation, lighting and green spaces make urban life better for everyone.",
-
-  "INCLUSÃO":
-    "INCLUSION",
-
-  "Acessibilidade não é":
-    "Accessibility is not",
-
-  "opcional.":
-    "optional.",
-
-  "Uma cidade verdadeiramente inclusiva elimina barreiras físicas, sociais e digitais.":
-    "A truly inclusive city removes physical, social and digital barriers.",
+  "Criar e melhorar rampas em calçadas, prédios públicos, praças e locais de grande circulação.":
+    "Create and improve ramps on sidewalks, public buildings, parks and busy areas.",
 
   "Calçadas acessíveis":
     "Accessible sidewalks",
 
-  "Espaço adequado, piso regular e rampas.":
-    "Adequate space, regular surfaces and ramps.",
+  "Recuperar calçadas quebradas, remover obstáculos e melhorar a circulação de pedestres.":
+    "Repair broken sidewalks, remove obstacles and improve pedestrian circulation.",
 
-  "Comunicação acessível":
-    "Accessible communication",
+  "Pontos de ônibus acessíveis":
+    "Accessible bus stops",
 
-  "Informações visuais, sonoras e simples.":
-    "Visual, audio and easy-to-understand information.",
+  "Criar pontos com cobertura, bancos, espaço adequado e informações fáceis de entender.":
+    "Create stops with shelter, benches, adequate space and easy-to-understand information.",
 
-  "Transporte inclusivo":
-    "Inclusive transportation",
+  "Ônibus com avisos sonoros":
+    "Buses with audio announcements",
 
-  "Veículos e pontos acessíveis.":
-    "Accessible vehicles and stops.",
+  "Informar por áudio o número ou nome das próximas paradas, facilitando o uso do transporte público.":
+    "Announce upcoming stops by audio, making public transportation easier to use.",
 
-  "Inclusão digital":
-    "Digital inclusion",
+  "Melhor iluminação":
+    "Better lighting",
 
-  "Serviços digitais simples e acessíveis.":
-    "Simple and accessible digital services.",
-
-  "MOBILIDADE URBANA":
-    "URBAN MOBILITY",
-
-  "Mover-se pela cidade":
-    "Moving around the city",
-
-  "deve ser fácil.":
-    "should be easy.",
-
-  "Mobilidade urbana é muito mais do que carros. É garantir que as pessoas consigam chegar aos lugares com segurança e autonomia.":
-    "Urban mobility is much more than cars. It means ensuring that people can reach places safely and independently.",
-
-  "Pedestres":
-    "Pedestrians",
-
-  "Calçadas contínuas, iluminação, travessias seguras e bancos para descanso.":
-    "Continuous sidewalks, lighting, safe crossings and rest benches.",
-
-  "Transporte público":
-    "Public transportation",
-
-  "Veículos acessíveis, pontos bem localizados e informações claras.":
-    "Accessible vehicles, well-located stops and clear information.",
-
-  "Bicicletas":
-    "Bicycles",
-
-  "Ciclovias conectadas e espaços seguros para bicicletas.":
-    "Connected bike lanes and safe spaces for bicycles.",
-
-  "Segurança viária":
-    "Road safety",
-
-  "Faixas de pedestres, sinalização adequada e redução de velocidades perigosas.":
-    "Pedestrian crossings, proper signs and reduced dangerous speeds.",
-
-  "COMO PODEMOS MELHORAR?":
-    "HOW CAN WE IMPROVE?",
-
-  "Problemas urbanos":
-    "Urban problems",
-
-  "e suas soluções.":
-    "and their solutions.",
-
-  "Calçadas quebradas":
-    "Broken sidewalks",
-
-  "Dificultam a circulação de idosos, cadeirantes e pessoas com mobilidade reduzida.":
-    "They make movement difficult for older people, wheelchair users and people with reduced mobility.",
-
-  "✓ Recuperar e padronizar calçadas":
-    "✓ Repair and standardize sidewalks",
-
-  "Pouca arborização":
-    "Too few trees",
-
-  "A ausência de árvores aumenta o calor e reduz o conforto dos espaços públicos.":
-    "The lack of trees increases heat and reduces comfort in public spaces.",
-
-  "✓ Criar corredores verdes":
-    "✓ Create green corridors",
-
-  "Transporte insuficiente":
-    "Insufficient transportation",
-
-  "Linhas e horários inadequados podem dificultar o acesso a serviços importantes.":
-    "Inadequate routes and schedules can make access to important services difficult.",
-
-  "✓ Melhorar rotas e horários":
-    "✓ Improve routes and schedules",
-
-  "Falta de iluminação":
-    "Poor lighting",
-
-  "Ruas mal iluminadas reduzem a sensação de segurança.":
-    "Poorly lit streets can reduce people's sense of safety.",
-
-  "✓ Melhorar iluminação pública":
-    "✓ Improve public lighting",
-
-  "SOLUÇÕES":
-    "SOLUTIONS",
-
-  "Seis caminhos para":
-    "Six paths toward",
-
-  "uma cidade melhor.":
-    "a better city.",
+  "Melhorar a iluminação de ruas, praças, pontos de ônibus e áreas de grande circulação.":
+    "Improve lighting on streets, parks, bus stops and busy areas.",
 
   "Mais áreas verdes":
     "More green areas",
 
-  "Praças, árvores, jardins e espaços de convivência.":
-    "Parks, trees, gardens and community spaces.",
+  "Plantar árvores e criar áreas verdes para oferecer sombra, conforto térmico e espaços de convivência.":
+    "Plant trees and create green areas to provide shade, thermal comfort and community spaces.",
 
-  "Acessibilidade universal":
-    "Universal accessibility",
+  "Bancos para descanso":
+    "Rest benches",
 
-  "Remover barreiras e melhorar a circulação.":
-    "Remove barriers and improve mobility.",
+  "Instalar bancos em praças e trajetos movimentados, beneficiando principalmente pessoas que precisam descansar.":
+    "Install benches in parks and busy routes, especially benefiting people who need to rest.",
 
-  "Transporte eficiente":
-    "Efficient transportation",
+  "Mais tempo para pedestres":
+    "More time for pedestrians",
 
-  "Transporte público conectado e acessível.":
-    "Connected and accessible public transportation.",
+  "Avaliar tempos de travessia para facilitar a passagem de pessoas idosas e pessoas com mobilidade reduzida.":
+    "Review crossing times to make it easier for older people and people with reduced mobility to cross.",
 
-  "Iluminação inteligente":
-    "Smart lighting",
+  "Canal para problemas urbanos":
+    "Urban problem reporting channel",
 
-  "Mais segurança e eficiência nos espaços públicos.":
-    "More safety and efficiency in public spaces.",
+  "Criar um canal digital para moradores comunicarem problemas como buracos, iluminação defeituosa e calçadas danificadas.":
+    "Create a digital channel for residents to report issues such as potholes, faulty lighting and damaged sidewalks.",
 
-  "Espaços de convivência":
-    "Community spaces",
+  "Praças acessíveis":
+    "Accessible parks",
 
-  "Locais para cultura, esporte e interação.":
-    "Places for culture, sports and interaction.",
+  "Criar espaços com caminhos acessíveis, bancos, áreas verdes e equipamentos que possam ser utilizados por diferentes pessoas.":
+    "Create spaces with accessible paths, benches, green areas and equipment that can be used by different people.",
 
-  "Cidade conectada":
-    "Connected city",
+  "Participação da população":
+    "Public participation",
 
-  "Tecnologia para facilitar serviços e participação.":
-    "Technology to make services and participation easier.",
+  "Criar espaços para moradores apresentarem sugestões, identificarem problemas e participarem das discussões sobre a cidade.":
+    "Create spaces for residents to make suggestions, identify problems and participate in discussions about the city.",
 
-  "INDICADORES":
-    "INDICATORS",
+  "💡 Tem outra ideia?":
+    "💡 Have another idea?",
 
-  "Uma cidade preparada":
-    "A prepared city",
+  "Uma boa proposta pode começar com um simples problema observado no seu bairro.":
+    "A good proposal can start with a simple problem observed in your neighborhood.",
 
-  "pensa no futuro.":
-    "thinks about the future.",
-
-  "Acessibilidade":
-    "Accessibility",
-
-  "Espaços públicos acessíveis.":
-    "Accessible public spaces.",
-
-  "Autonomia":
-    "Autonomy",
-
-  "Liberdade para circular e participar.":
-    "Freedom to move around and participate.",
-
-  "Segurança":
-    "Safety",
-
-  "Ruas e transportes mais seguros.":
-    "Safer streets and transportation.",
-
-  "Participação":
-    "Participation",
-
-  "Comunidade envolvida nas decisões.":
-    "Community involved in decisions.",
-
-  "INSPIRAÇÃO":
-    "INSPIRATION",
-
-  "Como pode ser a":
-    "What could the",
-
-  "cidade do futuro?":
-    "city of the future look like?",
-
-  "Cidade conectada":
-    "Connected city",
-
-  "Mobilidade":
-    "Mobility",
-
-  "Espaços públicos":
-    "Public spaces",
-
-  "Áreas verdes":
-    "Green areas",
-
-  "INTERAÇÃO":
-    "INTERACTION",
-
-  "Sua cidade é":
-    "Is your city",
-
-  "acessível?":
-    "accessible?",
-
-  "Marque os itens que existem no seu bairro.":
-    "Check the items that exist in your neighborhood.",
-
-  "Calçadas em boas condições":
-    "Sidewalks in good condition",
-
-  "Rampas de acessibilidade":
-    "Accessibility ramps",
-
-  "Faixas de pedestres":
-    "Pedestrian crossings",
-
-  "Transporte público acessível":
-    "Accessible public transportation",
-
-  "Boa iluminação":
-    "Good lighting",
-
-  "Áreas verdes e espaços de convivência":
-    "Green areas and community spaces",
-
-  "Avaliar minha cidade":
-    "Evaluate my city",
-
-  "TECNOLOGIA":
-    "TECHNOLOGY",
-
-  "Conheça o":
-    "Meet",
-
-  "Converse com nosso assistente e tire dúvidas sobre envelhecimento ativo, inclusão, acessibilidade e mobilidade urbana.":
-    "Talk to our assistant and ask questions about active aging, inclusion, accessibility and urban mobility.",
-
-  "Assistente do projeto":
-    "Project assistant",
-
-  "● Online":
-    "● Online",
-
-  "Olá! 👋 Sou a VivaIA. Posso explicar temas como acessibilidade, envelhecimento ativo, mobilidade urbana e soluções para cidades.":
-    "Hello! 👋 I'm VivaIA. I can explain topics such as accessibility, active aging, urban mobility and solutions for cities.",
-
-  "O que você gostaria de saber?":
-    "What would you like to know?",
-
-  "👴 Envelhecimento ativo":
-    "👴 Active aging",
-
-  "♿ Acessibilidade":
-    "♿ Accessibility",
-
-  "🚌 Mobilidade":
-    "🚌 Mobility",
-
-  "🌎 Inclusão":
-    "🌎 Inclusion",
-
-  "Digite sua pergunta...":
-    "Type your question...",
-
-  "A VivaIA desta versão funciona localmente no navegador e responde com uma base de conhecimento sobre o projeto.":
-    "This version of VivaIA works locally in your browser and responds using a knowledge base about the project.",
-
-  "DÚVIDAS":
-    "FAQ",
-
-  "Perguntas":
-    "Frequently",
-
-  "frequentes.":
-    "asked questions.",
-
-  "O que significa envelhecimento ativo?":
-    "What does active aging mean?",
-
-  "É uma abordagem que busca proporcionar saúde, participação, segurança e qualidade de vida ao longo do envelhecimento.":
-    "It is an approach that seeks to provide health, participation, safety and quality of life throughout aging.",
-
-  "O que é uma cidade inclusiva?":
-    "What is an inclusive city?",
-
-  "É uma cidade que procura eliminar barreiras e permitir que pessoas diferentes participem da vida urbana.":
-    "It is a city that seeks to remove barriers and allow different people to participate in urban life.",
-
-  "Por que a mobilidade urbana é importante?":
-    "Why is urban mobility important?",
-
-  "Porque permite que as pessoas tenham acesso a trabalho, educação, saúde, lazer e convivência.":
-    "Because it allows people to access work, education, healthcare, leisure and social activities.",
-
-  "Como posso ajudar minha cidade?":
-    "How can I help my city?",
-
-  "Você pode observar problemas, participar de decisões comunitárias, preservar espaços públicos e apresentar propostas ao poder público.":
-    "You can observe problems, participate in community decisions, preserve public spaces and present proposals to public authorities.",
-
-  "PARTICIPE":
-    "GET INVOLVED",
-
-  "Qual cidade você quer deixar para o futuro?":
-    "What kind of city do you want to leave for the future?",
-
-  "Pequenas ideias podem ajudar a transformar grandes espaços.":
-    "Small ideas can help transform large spaces.",
-
-  "💡 Enviar uma ideia":
-    "💡 Send an idea",
-
-  "Sua ideia importa":
-    "Your idea matters",
-
-  "Conte uma ideia para melhorar sua cidade.":
-    "Tell us an idea to improve your city.",
-
-  "Seu nome":
-    "Your name",
-
-  "Qual melhoria você gostaria de ver?":
-    "What improvement would you like to see?",
-
-  "Enviar ideia":
-    "Send idea",
-
-  "✅ Obrigado pela sua contribuição!":
-    "✅ Thank you for your contribution!",
-
-  "Navegação":
-    "Navigation",
-
-  "Interação":
-    "Interaction",
-
-  "🤖 VivaIA":
-    "🤖 VivaIA",
-
-  "Perguntas":
-    "Questions",
-
-  "Envelhecimento Ativo, Inclusão e Mobilidade Urbana.":
-    "Active Aging, Inclusion and Urban Mobility.",
-
-  "© 2026 VivaCidade — Projeto educativo.":
-    "© 2026 VivaCidade — Educational project."
+  "Enviar minha ideia":
+    "Send my idea"
 };
 
+
 /* =====================================
-   IDEIAS PARA APRESENTAR AO PREFEITO
+   IDEIAS PARA A CIDADE
 ===================================== */
 
 function createCityIdeasSection() {
 
-  if (document.getElementById("ideias-prefeitura")) return;
+  if (document.getElementById("cityIdeas")) {
+    return;
+  }
+
+  const solutionsSection = document.getElementById("solucoes");
+
+  if (!solutionsSection) {
+    return;
+  }
 
   const section = document.createElement("section");
 
+  section.id = "cityIdeas";
   section.className = "section city-ideas-section";
-  section.id = "ideias-prefeitura";
 
   section.innerHTML = `
     <div class="container">
 
-      <div class="section-heading">
+      <div class="section-heading city-ideas-intro">
 
         <span class="eyebrow">
-          IDEIAS PARA A CIDADE
+          IDEIAS PARA A PREFEITURA
         </span>
 
         <h2>
-          Propostas que podem ser apresentadas
-          <span>à prefeitura.</span>
+          Propostas que podem ser apresentadas à prefeitura.
         </h2>
 
         <p>
@@ -642,8 +361,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">🚦</div>
           <h3>Semáforos sonoros</h3>
           <p>
-            Instalar sinais sonoros para ajudar pessoas com deficiência
-            visual durante a travessia das ruas.
+            Instalar sinais sonoros para ajudar pessoas com deficiência visual durante a travessia das ruas.
           </p>
         </article>
 
@@ -651,8 +369,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">♿</div>
           <h3>Rampas acessíveis</h3>
           <p>
-            Criar e melhorar rampas em calçadas, prédios públicos,
-            praças e locais de grande circulação.
+            Criar e melhorar rampas em calçadas, prédios públicos, praças e locais de grande circulação.
           </p>
         </article>
 
@@ -660,8 +377,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">🚶</div>
           <h3>Calçadas acessíveis</h3>
           <p>
-            Recuperar calçadas quebradas, remover obstáculos e melhorar
-            a circulação de pedestres.
+            Recuperar calçadas quebradas, remover obstáculos e melhorar a circulação de pedestres.
           </p>
         </article>
 
@@ -669,8 +385,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">🚌</div>
           <h3>Pontos de ônibus acessíveis</h3>
           <p>
-            Criar pontos com cobertura, bancos, espaço adequado e
-            informações fáceis de entender.
+            Criar pontos com cobertura, bancos, espaço adequado e informações fáceis de entender.
           </p>
         </article>
 
@@ -678,8 +393,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">🔊</div>
           <h3>Ônibus com avisos sonoros</h3>
           <p>
-            Informar por áudio o número ou nome das próximas paradas,
-            facilitando o uso do transporte público.
+            Informar por áudio o número ou nome das próximas paradas, facilitando o uso do transporte público.
           </p>
         </article>
 
@@ -687,8 +401,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">💡</div>
           <h3>Melhor iluminação</h3>
           <p>
-            Melhorar a iluminação de ruas, praças, pontos de ônibus
-            e áreas de grande circulação.
+            Melhorar a iluminação de ruas, praças, pontos de ônibus e áreas de grande circulação.
           </p>
         </article>
 
@@ -696,8 +409,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">🌳</div>
           <h3>Mais áreas verdes</h3>
           <p>
-            Plantar árvores e criar áreas verdes para oferecer sombra,
-            conforto térmico e espaços de convivência.
+            Plantar árvores e criar áreas verdes para oferecer sombra, conforto térmico e espaços de convivência.
           </p>
         </article>
 
@@ -705,8 +417,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">🪑</div>
           <h3>Bancos para descanso</h3>
           <p>
-            Instalar bancos em praças e trajetos movimentados,
-            beneficiando principalmente pessoas que precisam descansar.
+            Instalar bancos em praças e trajetos movimentados, beneficiando principalmente pessoas que precisam descansar.
           </p>
         </article>
 
@@ -714,8 +425,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">⏱️</div>
           <h3>Mais tempo para pedestres</h3>
           <p>
-            Avaliar tempos de travessia para facilitar a passagem de
-            pessoas idosas e pessoas com mobilidade reduzida.
+            Avaliar tempos de travessia para facilitar a passagem de pessoas idosas e pessoas com mobilidade reduzida.
           </p>
         </article>
 
@@ -723,8 +433,7 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">📱</div>
           <h3>Canal para problemas urbanos</h3>
           <p>
-            Criar um canal digital para moradores comunicarem problemas
-            como buracos, iluminação defeituosa e calçadas danificadas.
+            Criar um canal digital para moradores comunicarem problemas como buracos, iluminação defeituosa e calçadas danificadas.
           </p>
         </article>
 
@@ -732,17 +441,15 @@ function createCityIdeasSection() {
           <div class="city-idea-icon">🏞️</div>
           <h3>Praças acessíveis</h3>
           <p>
-            Criar espaços com caminhos acessíveis, bancos, áreas verdes
-            e equipamentos que possam ser utilizados por diferentes pessoas.
+            Criar espaços com caminhos acessíveis, bancos, áreas verdes e equipamentos que possam ser utilizados por diferentes pessoas.
           </p>
         </article>
 
         <article class="city-idea-card">
-          <div class="city-idea-icon">🗣️</div>
+          <div class="city-idea-icon">👥</div>
           <h3>Participação da população</h3>
           <p>
-            Criar espaços para moradores apresentarem sugestões,
-            identificarem problemas e participarem das discussões sobre a cidade.
+            Criar espaços para moradores apresentarem sugestões, identificarem problemas e participarem das discussões sobre a cidade.
           </p>
         </article>
 
@@ -750,16 +457,17 @@ function createCityIdeasSection() {
 
       <div class="idea-action-box">
 
-        <h3>
-          💡 Tem outra ideia?
-        </h3>
+        <h3>💡 Tem outra ideia?</h3>
 
         <p>
-          Uma boa proposta pode começar com um simples problema
-          observado no seu bairro.
+          Uma boa proposta pode começar com um simples problema observado no seu bairro.
         </p>
 
-        <button class="btn btn-white" id="openIdeaFromCity">
+        <button
+          class="btn btn-primary"
+          id="openIdeaFromCity"
+          type="button"
+        >
           Enviar minha ideia
         </button>
 
@@ -768,16 +476,28 @@ function createCityIdeasSection() {
     </div>
   `;
 
-  const solutions = document.getElementById("solucoes");
+  solutionsSection.parentNode.insertBefore(
+    section,
+    solutionsSection
+  );
 
-  if (solutions) {
-    solutions.parentNode.insertBefore(section, solutions);
-  } else {
-    document.querySelector("main").appendChild(section);
+  const openIdeaFromCity =
+    document.getElementById("openIdeaFromCity");
+
+  if (openIdeaFromCity) {
+    openIdeaFromCity.addEventListener("click", () => {
+
+      const ideaModal =
+        document.getElementById("ideaModal");
+
+      if (ideaModal) {
+        ideaModal.classList.add("active");
+      }
+
+    });
   }
 }
 
-createCityIdeasSection();
 
 /* =====================================
    TRADUÇÃO DOS TEXTOS
@@ -787,137 +507,167 @@ const originalTextNodes = new WeakMap();
 
 function translateTextNodes(language) {
 
-  const walker = document.createTreeWalker(
-    document.body,
-    NodeFilter.SHOW_TEXT
+  const elements = document.querySelectorAll(
+    "body *"
   );
 
-  const nodes = [];
+  elements.forEach(element => {
 
-  while (walker.nextNode()) {
-    nodes.push(walker.currentNode);
-  }
-
-  nodes.forEach(node => {
-
-    if (!originalTextNodes.has(node)) {
-      originalTextNodes.set(node, node.nodeValue.trim());
+    if (
+      element.tagName === "SCRIPT" ||
+      element.tagName === "STYLE" ||
+      element.tagName === "INPUT" ||
+      element.tagName === "TEXTAREA"
+    ) {
+      return;
     }
 
-    const original = originalTextNodes.get(node);
+    element.childNodes.forEach(node => {
 
-    if (!original) return;
+      if (node.nodeType !== Node.TEXT_NODE) {
+        return;
+      }
 
-    if (language === "en" && translations[original]) {
+      const original =
+        originalTextNodes.has(node)
+          ? originalTextNodes.get(node)
+          : node.nodeValue;
 
-      const leading =
-        node.nodeValue.match(/^\s*/)?.[0] || "";
+      if (!originalTextNodes.has(node)) {
+        originalTextNodes.set(node, original);
+      }
 
-      const trailing =
-        node.nodeValue.match(/\s*$/)?.[0] || "";
+      const cleanText = original.trim();
 
-      node.nodeValue =
-        leading +
-        translations[original] +
-        trailing;
+      if (!cleanText) {
+        return;
+      }
 
-    } else if (language === "pt") {
+      if (language === "en") {
 
-      node.nodeValue = original;
-    }
+        if (translations[cleanText]) {
+
+          node.nodeValue =
+            original.replace(
+              cleanText,
+              translations[cleanText]
+            );
+
+        }
+
+      } else {
+
+        node.nodeValue = original;
+
+      }
+
+    });
 
   });
+
 }
 
+
 /* =====================================
-   TRADUÇÃO DOS CAMPOS
+   CAMPOS E PLACEHOLDERS
 ===================================== */
 
 function updateFields(language) {
 
-  const input = document.getElementById("chatInput");
+  const nameInput =
+    document.getElementById("ideaName");
 
-  if (input) {
-    input.placeholder =
-      language === "en"
-        ? "Type your question..."
-        : "Digite sua pergunta...";
+  const ideaText =
+    document.getElementById("ideaText");
+
+  const chatInput =
+    document.getElementById("chatInput");
+
+  if (language === "en") {
+
+    if (nameInput) {
+      nameInput.placeholder = "Your name";
+    }
+
+    if (ideaText) {
+      ideaText.placeholder =
+        "What improvement would you like to see?";
+    }
+
+    if (chatInput) {
+      chatInput.placeholder =
+        "Type your question...";
+    }
+
+  } else {
+
+    if (nameInput) {
+      nameInput.placeholder = "Seu nome";
+    }
+
+    if (ideaText) {
+      ideaText.placeholder =
+        "Qual melhoria você gostaria de ver?";
+    }
+
+    if (chatInput) {
+      chatInput.placeholder =
+        "Digite sua pergunta...";
+    }
+
   }
 
-  const name = document.getElementById("ideaName");
-
-  if (name) {
-    name.placeholder =
-      language === "en"
-        ? "Your name"
-        : "Seu nome";
-  }
-
-  const ideaText = document.getElementById("ideaText");
-
-  if (ideaText) {
-    ideaText.placeholder =
-      language === "en"
-        ? "What improvement would you like to see?"
-        : "Qual melhoria você gostaria de ver?";
-  }
 }
 
+
 /* =====================================
-   QUICK QUESTIONS
+   PERGUNTAS RÁPIDAS DA IA
 ===================================== */
 
 function updateQuickQuestions(language) {
 
-  const buttons =
-    document.querySelectorAll(".quick-questions button");
+  const quickQuestions =
+    document.querySelectorAll(
+      ".quick-questions button"
+    );
 
-  const questionsPT = [
-    "O que é envelhecimento ativo?",
-    "O que é acessibilidade?",
-    "Como melhorar a mobilidade urbana?",
-    "Como tornar uma cidade mais inclusiva?"
+  if (!quickQuestions.length) {
+    return;
+  }
+
+  const ptQuestions = [
+    "Como melhorar a acessibilidade?",
+    "O que é uma cidade inclusiva?",
+    "Como melhorar a mobilidade?",
+    "Dê uma ideia para minha cidade."
   ];
 
-  const questionsEN = [
-    "What is active aging?",
-    "What is accessibility?",
-    "How can we improve urban mobility?",
-    "How can we make a city more inclusive?"
+  const enQuestions = [
+    "How can accessibility be improved?",
+    "What is an inclusive city?",
+    "How can mobility be improved?",
+    "Give me an idea for my city."
   ];
 
-  buttons.forEach((button, index) => {
+  quickQuestions.forEach((button, index) => {
 
-    if (language === "en") {
+    const text =
+      language === "en"
+        ? enQuestions[index]
+        : ptQuestions[index];
 
-      button.textContent = [
-        "👴 Active aging",
-        "♿ Accessibility",
-        "🚌 Mobility",
-        "🌎 Inclusion"
-      ][index];
-
-      button.dataset.question =
-        questionsEN[index];
-
-    } else {
-
-      button.textContent = [
-        "👴 Envelhecimento ativo",
-        "♿ Acessibilidade",
-        "🚌 Mobilidade",
-        "🌎 Inclusão"
-      ][index];
-
-      button.dataset.question =
-        questionsPT[index];
+    if (text) {
+      button.textContent = text;
+      button.dataset.question = text;
     }
 
   });
+
 }
 
+
 /* =====================================
-   TROCAR IDIOMA
+   APLICAR IDIOMA
 ===================================== */
 
 function applyLanguage(language) {
@@ -928,15 +678,6 @@ function applyLanguage(language) {
     "vivacidadeLanguage",
     language
   );
-
-  document.documentElement.lang =
-    language === "en"
-      ? "en"
-      : "pt-BR";
-
-  translateTextNodes(language);
-  updateFields(language);
-  updateQuickQuestions(language);
 
   if (languageBtn) {
 
@@ -951,148 +692,140 @@ function applyLanguage(language) {
         ? "Mudar para inglês"
         : "Switch to Portuguese"
     );
+
   }
 
-  document.title =
-    language === "en"
-      ? "VivaCidade | City for Everyone"
-      : "VivaCidade | Cidade para Todos";
+  translateTextNodes(language);
 
-  const meta =
-    document.querySelector('meta[name="description"]');
+  updateFields(language);
 
-  if (meta) {
-    meta.content =
-      language === "en"
-        ? "VivaCidade - Active Aging, Inclusion and Urban Mobility."
-        : "VivaCidade - Envelhecimento Ativo, Inclusão e Mobilidade Urbana.";
-  }
+  updateQuickQuestions(language);
+
 }
+
+
+/* =====================================
+   TROCAR IDIOMA
+===================================== */
 
 if (languageBtn) {
 
   languageBtn.addEventListener("click", () => {
 
-    applyLanguage(
+    const nextLanguage =
       currentLanguage === "pt"
         ? "en"
-        : "pt"
-    );
+        : "pt";
+
+    applyLanguage(nextLanguage);
 
   });
+
 }
+
 
 /* =====================================
    CHECKLIST
 ===================================== */
 
-const checkResult = document.getElementById("checkResult");
-const result = document.getElementById("result");
-const checks = document.querySelectorAll(".check");
+const checklistBtn =
+  document.getElementById("checklistBtn");
 
-function getChecklistMessage(checked, total) {
+const checklistResult =
+  document.getElementById("checklistResult");
 
-  if (currentLanguage === "en") {
+if (checklistBtn && checklistResult) {
 
-    if (checked === 0) {
-      return "Your city still has many areas that could be improved. Start by observing your neighborhood and identifying the main problems.";
-    }
+  checklistBtn.addEventListener("click", () => {
 
-    if (checked <= 2) {
-      return `You checked ${checked} of ${total}. There are good opportunities to improve accessibility, safety and mobility.`;
-    }
+    const checks =
+      document.querySelectorAll(
+        '.checklist-box input[type="checkbox"]'
+      );
 
-    if (checked <= 4) {
-      return `You checked ${checked} of ${total}. Your area has made some progress, but important challenges still exist.`;
-    }
-
-    if (checked < total) {
-      return `You checked ${checked} of ${total}. Your area is making great progress! There are still some points that could improve.`;
-    }
-
-    return `You checked ${checked} of ${total}. Excellent! Your neighborhood has several elements of a more inclusive and accessible city.`;
-
-  }
-
-  if (checked === 0) {
-    return "Sua cidade ainda apresenta muitos pontos que podem ser melhorados. Comece observando seu bairro e identificando os principais problemas.";
-  }
-
-  if (checked <= 2) {
-    return `Você marcou ${checked} de ${total}. Existem boas oportunidades para melhorar a acessibilidade, segurança e mobilidade.`;
-  }
-
-  if (checked <= 4) {
-    return `Você marcou ${checked} de ${total}. Sua região possui alguns avanços, mas ainda existem desafios importantes.`;
-  }
-
-  if (checked < total) {
-    return `Você marcou ${checked} de ${total}. Sua região está avançando bastante! Ainda existem alguns pontos que podem melhorar.`;
-  }
-
-  return `Você marcou ${checked} de ${total}. Excelente! Seu bairro apresenta vários elementos de uma cidade mais inclusiva e acessível.`;
-}
-
-if (checkResult) {
-
-  checkResult.addEventListener("click", () => {
+    const checked =
+      [...checks].filter(
+        checkbox => checkbox.checked
+      ).length;
 
     const total = checks.length;
 
-    const checked =
-      document.querySelectorAll(".check:checked").length;
+    if (total === 0) {
+      return;
+    }
 
-    result.textContent =
-      getChecklistMessage(checked, total);
+    let message = "";
 
-    result.style.display = "block";
+    if (currentLanguage === "en") {
+
+      if (checked === total) {
+
+        message =
+          "Excellent! Your city meets all the points checked.";
+
+      } else if (checked >= total / 2) {
+
+        message =
+          `Your city meets ${checked} of ${total} accessibility points. There is still room for improvement.`;
+
+      } else {
+
+        message =
+          `Your city meets ${checked} of ${total} accessibility points. There are several opportunities for improvement.`;
+
+      }
+
+    } else {
+
+      if (checked === total) {
+
+        message =
+          "Excelente! Sua cidade atende a todos os pontos avaliados.";
+
+      } else if (checked >= total / 2) {
+
+        message =
+          `Sua cidade atende ${checked} de ${total} pontos de acessibilidade. Ainda há espaço para melhorias.`;
+
+      } else {
+
+        message =
+          `Sua cidade atende ${checked} de ${total} pontos de acessibilidade. Existem várias oportunidades de melhoria.`;
+
+      }
+
+    }
+
+    checklistResult.textContent = message;
+    checklistResult.style.display = "block";
+
   });
+
 }
+
 
 /* =====================================
    MODAL DE IDEIAS
 ===================================== */
 
-const ideaBtn = document.getElementById("ideaBtn");
-const ideaModal = document.getElementById("ideaModal");
-const closeModal = document.getElementById("closeModal");
-const ideaForm = document.getElementById("ideaForm");
-const success = document.getElementById("success");
+const ideaModal =
+  document.getElementById("ideaModal");
 
-function openIdeaModal() {
+const closeModal =
+  document.getElementById("closeModal");
 
-  if (!ideaModal) return;
+const ideaForm =
+  document.getElementById("ideaForm");
 
-  ideaModal.classList.add("active");
+const success =
+  document.getElementById("success");
 
-  document.body.style.overflow = "hidden";
-}
-
-if (ideaBtn) {
-  ideaBtn.addEventListener(
-    "click",
-    openIdeaModal
-  );
-}
-
-const openIdeaFromCity =
-  document.getElementById("openIdeaFromCity");
-
-if (openIdeaFromCity) {
-  openIdeaFromCity.addEventListener(
-    "click",
-    openIdeaModal
-  );
-}
-
-if (closeModal) {
+if (closeModal && ideaModal) {
 
   closeModal.addEventListener("click", () => {
-
     ideaModal.classList.remove("active");
-
-    document.body.style.overflow = "";
   });
+
 }
 
 if (ideaModal) {
@@ -1100,76 +833,46 @@ if (ideaModal) {
   ideaModal.addEventListener("click", event => {
 
     if (event.target === ideaModal) {
-
       ideaModal.classList.remove("active");
-
-      document.body.style.overflow = "";
     }
 
   });
+
 }
 
-if (ideaForm) {
+if (ideaForm && success) {
 
   ideaForm.addEventListener("submit", event => {
 
     event.preventDefault();
 
     ideaForm.style.display = "none";
-
     success.style.display = "block";
-
-    setTimeout(() => {
-
-      ideaModal.classList.remove("active");
-
-      document.body.style.overflow = "";
-
-      ideaForm.reset();
-
-      ideaForm.style.display = "block";
-
-      success.style.display = "none";
-
-    }, 2500);
 
   });
 
 }
 
-/* =====================================
-   ESC FECHA MODAL
-===================================== */
-
-document.addEventListener("keydown", event => {
-
-  if (event.key === "Escape") {
-
-    if (ideaModal) {
-      ideaModal.classList.remove("active");
-    }
-
-    document.body.style.overflow = "";
-
-    if (accessPanel) {
-      accessPanel.classList.remove("active");
-    }
-
-  }
-
-});
 
 /* =====================================
    VIVAI
 ===================================== */
 
-const chatForm = document.getElementById("chatForm");
-const chatInput = document.getElementById("chatInput");
-const chatMessages = document.getElementById("chatMessages");
+const chatForm =
+  document.getElementById("chatForm");
+
+const chatInput =
+  document.getElementById("chatInput");
+
+const chatMessages =
+  document.getElementById("chatMessages");
+
 
 function addMessage(text, type = "ai") {
 
-  if (!chatMessages) return;
+  if (!chatMessages) {
+    return;
+  }
 
   const message =
     document.createElement("div");
@@ -1177,29 +880,17 @@ function addMessage(text, type = "ai") {
   message.className =
     type === "user"
       ? "message user-message"
-      : "message ai-message";
+      : "message";
 
-  const avatar =
-    document.createElement("div");
+  message.innerHTML = `
+    <div class="message-avatar">
+      ${type === "user" ? "👤" : "🤖"}
+    </div>
 
-  avatar.className =
-    "message-avatar";
-
-  avatar.textContent =
-    type === "user"
-      ? "👤"
-      : "🤖";
-
-  const content =
-    document.createElement("div");
-
-  content.className =
-    "message-content";
-
-  content.innerHTML = text;
-
-  message.appendChild(avatar);
-  message.appendChild(content);
+    <div class="message-content">
+      ${text}
+    </div>
+  `;
 
   chatMessages.appendChild(message);
 
@@ -1207,416 +898,230 @@ function addMessage(text, type = "ai") {
     chatMessages.scrollHeight;
 }
 
+
+/* =====================================
+   RESPOSTAS DA IA
+===================================== */
+
 function getAIResponse(question) {
 
   const q =
-    question
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
+    question.toLowerCase();
 
-  const english =
-    currentLanguage === "en";
+  if (currentLanguage === "en") {
 
-  if (
-    q.includes("envelhecimento ativo") ||
-    q.includes("envelhecer") ||
-    q.includes("active aging") ||
-    q.includes("active ageing")
-  ) {
-
-    if (english) {
+    if (
+      q.includes("accessibility") ||
+      q.includes("accessible") ||
+      q.includes("disabled")
+    ) {
 
       return `
-        <strong>Active aging</strong> is an approach that seeks to improve quality of life throughout aging.
-        <br><br>
-        It involves:
-        <br>• health and well-being;
-        <br>• safety;
-        <br>• social participation;
-        <br>• autonomy;
-        <br>• lifelong learning.
-        <br><br>
-        A well-planned city can greatly support this process.
+        Some important accessibility measures include accessible ramps,
+        sidewalks without obstacles, audio traffic lights,
+        accessible public transportation and adapted public spaces.
+      `;
+
+    }
+
+    if (
+      q.includes("mobility") ||
+      q.includes("transport") ||
+      q.includes("bus")
+    ) {
+
+      return `
+        Improving mobility can involve better public transportation,
+        accessible bus stops, safer sidewalks, bike lanes and
+        pedestrian-friendly crossings.
+      `;
+
+    }
+
+    if (
+      q.includes("inclusive") ||
+      q.includes("inclusion")
+    ) {
+
+      return `
+        An inclusive city is one where different people can use
+        public spaces, services and transportation with safety,
+        independence and dignity.
+      `;
+
+    }
+
+    if (
+      q.includes("idea") ||
+      q.includes("suggestion") ||
+      q.includes("improve")
+    ) {
+
+      return `
+        One good idea is to create a digital channel where residents
+        can report problems such as potholes, damaged sidewalks
+        and faulty street lighting.
       `;
 
     }
 
     return `
-      <strong>Envelhecimento ativo</strong> é uma abordagem que busca melhorar a qualidade de vida durante o envelhecimento.
-      <br><br>
-      Ela envolve principalmente:
-      <br>• saúde e bem-estar;
-      <br>• segurança;
-      <br>• participação social;
-      <br>• autonomia;
-      <br>• aprendizagem ao longo da vida.
-      <br><br>
-      Uma cidade bem planejada pode ajudar muito nesse processo.
+      I can help with accessibility, inclusion, mobility,
+      urban problems and ideas for improving the city.
     `;
+
   }
+
+
+  /* PORTUGUÊS */
 
   if (
     q.includes("acessibilidade") ||
-    q.includes("cadeirante") ||
-    q.includes("rampa") ||
-    q.includes("accessibility") ||
-    q.includes("wheelchair") ||
-    q.includes("ramp")
+    q.includes("acessível") ||
+    q.includes("deficiência")
   ) {
 
-    if (english) {
-
-      return `
-        <strong>Accessibility</strong> means reducing or eliminating barriers that make participation difficult.
-        <br><br>
-        Examples include:
-        <br>♿ ramps;
-        <br>🚶 proper sidewalks;
-        <br>🚌 accessible transportation;
-        <br>🔊 accessible information;
-        <br>🚦 safe crossings.
-        <br><br>
-        The goal is to allow as many people as possible to use public spaces independently.
-      `;
-
-    }
-
     return `
-      <strong>Acessibilidade</strong> significa reduzir ou eliminar barreiras que dificultam a participação das pessoas.
-      <br><br>
-      Alguns exemplos são:
-      <br>♿ rampas;
-      <br>🚶 calçadas adequadas;
-      <br>🚌 transporte acessível;
-      <br>🔊 informações acessíveis;
-      <br>🚦 travessias seguras.
-      <br><br>
-      A ideia é permitir que o maior número possível de pessoas utilize os espaços com autonomia.
+      Algumas medidas importantes de acessibilidade são rampas adequadas,
+      calçadas sem obstáculos, semáforos sonoros, transporte público acessível
+      e espaços públicos adaptados.
     `;
+
   }
 
   if (
     q.includes("mobilidade") ||
     q.includes("transporte") ||
-    q.includes("onibus") ||
-    q.includes("ônibus") ||
-    q.includes("mobility") ||
-    q.includes("transportation") ||
-    q.includes("bus")
+    q.includes("ônibus")
   ) {
-
-    if (english) {
-
-      return `
-        <strong>Urban mobility</strong> is the way people move around a city.
-        <br><br>
-        We can improve it by:
-        <br>🚌 improving public transportation;
-        <br>🚶 prioritizing pedestrians;
-        <br>🚲 creating connected bike lanes;
-        <br>🚦 improving crossings and signs;
-        <br>🌳 creating more comfortable routes.
-        <br><br>
-        Good mobility offers different ways to move around the city.
-      `;
-
-    }
 
     return `
-      <strong>Mobilidade urbana</strong> é a forma como as pessoas se deslocam pela cidade.
-      <br><br>
-      Para melhorar a mobilidade podemos:
-      <br>🚌 melhorar o transporte público;
-      <br>🚶 priorizar pedestres;
-      <br>🚲 criar ciclovias conectadas;
-      <br>🚦 melhorar travessias e sinalização;
-      <br>🌳 criar caminhos mais confortáveis.
-      <br><br>
-      Uma boa mobilidade oferece diferentes opções de deslocamento.
+      Melhorar a mobilidade pode envolver transporte público de qualidade,
+      pontos de ônibus acessíveis, calçadas seguras, ciclovias e travessias
+      mais adequadas para pedestres.
     `;
+
   }
 
   if (
-    q.includes("inclus") ||
-    q.includes("cidade inclusiva") ||
-    q.includes("inclusive city") ||
-    q.includes("inclusion")
+    q.includes("inclusão") ||
+    q.includes("inclusiva")
   ) {
-
-    if (english) {
-
-      return `
-        An <strong>inclusive city</strong> is planned so that different people can participate in urban life.
-        <br><br>
-        This involves physical accessibility, transportation, communication, digital inclusion, safety and community participation.
-        <br><br>
-        The goal is to reduce barriers and increase people's autonomy.
-      `;
-
-    }
 
     return `
-      Uma <strong>cidade inclusiva</strong> é planejada para que diferentes pessoas possam participar da vida urbana.
-      <br><br>
-      Isso envolve acessibilidade física, transporte, comunicação, inclusão digital, segurança e participação da comunidade.
-      <br><br>
-      O objetivo é diminuir barreiras e aumentar a autonomia das pessoas.
+      Uma cidade inclusiva é aquela em que diferentes pessoas conseguem
+      utilizar espaços públicos, serviços e transportes com segurança,
+      autonomia e dignidade.
     `;
+
   }
 
   if (
-    q.includes("melhorar") ||
-    q.includes("solucao") ||
-    q.includes("soluções") ||
-    q.includes("improve") ||
-    q.includes("solution")
+    q.includes("ideia") ||
+    q.includes("sugestão") ||
+    q.includes("melhorar")
   ) {
-
-    if (english) {
-
-      return `
-        There are many ways to improve a city.
-        <br><br>
-        Some possibilities are:
-        <br>🌳 more green areas;
-        <br>♿ better accessibility;
-        <br>🚶 better sidewalks;
-        <br>🚌 better public transportation;
-        <br>💡 better lighting;
-        <br>🚲 active mobility;
-        <br>🤝 more community participation.
-        <br><br>
-        The first step is identifying the most important problems in each area.
-      `;
-
-    }
 
     return `
-      Existem várias formas de melhorar uma cidade.
-      <br><br>
-      Algumas prioridades seriam:
-      <br>🌳 aumentar áreas verdes;
-      <br>♿ melhorar a acessibilidade;
-      <br>🚶 recuperar calçadas;
-      <br>🚌 melhorar o transporte público;
-      <br>💡 melhorar a iluminação;
-      <br>🚲 incentivar mobilidade ativa;
-      <br>🤝 aumentar a participação da população.
-      <br><br>
-      O ideal é identificar primeiro os problemas mais importantes de cada região.
+      Uma boa ideia é criar um canal digital onde os moradores possam
+      comunicar problemas como buracos, calçadas danificadas e iluminação
+      pública defeituosa.
     `;
+
   }
 
-  if (
-    q.includes("calçada") ||
-    q.includes("calcada") ||
-    q.includes("sidewalk")
-  ) {
-
-    return english
-      ? `
-        <strong>Sidewalks</strong> are fundamental for mobility.
-        <br><br>
-        A good sidewalk should have a regular surface, enough space for circulation, accessibility and safe connections to crossings.
-        <br><br>
-        Obstacles that make passage difficult should also be avoided.
-      `
-      : `
-        <strong>Calçadas</strong> são fundamentais para a mobilidade.
-        <br><br>
-        Uma boa calçada deve ter superfície regular, espaço suficiente para circulação, acessibilidade e conexão segura com travessias.
-        <br><br>
-        Também é importante evitar obstáculos que dificultem a passagem.
-      `;
-  }
-
-  if (
-    q.includes("idoso") ||
-    q.includes("idosa") ||
-    q.includes("pessoa idosa") ||
-    q.includes("older people") ||
-    q.includes("elderly")
-  ) {
-
-    return english
-      ? `
-        A city that is friendly to <strong>older people</strong> should support autonomy and participation.
-        <br><br>
-        This can include:
-        <br>🪑 rest benches;
-        <br>🚶 safe sidewalks;
-        <br>💡 good lighting;
-        <br>🚌 accessible transportation;
-        <br>🌳 green areas;
-        <br>🏥 easier access to services.
-      `
-      : `
-        Uma cidade amigável para <strong>pessoas idosas</strong> deve facilitar a autonomia e a participação.
-        <br><br>
-        Isso pode incluir:
-        <br>🪑 bancos para descanso;
-        <br>🚶 calçadas seguras;
-        <br>💡 boa iluminação;
-        <br>🚌 transporte acessível;
-        <br>🌳 áreas verdes;
-        <br>🏥 acesso facilitado aos serviços.
-      `;
-  }
-
-  if (
-    q.includes("oi") ||
-    q.includes("ola") ||
-    q.includes("olá") ||
-    q.includes("bom dia") ||
-    q.includes("boa tarde") ||
-    q.includes("boa noite") ||
-    q.includes("hello") ||
-    q.includes("hi") ||
-    q.includes("good morning") ||
-    q.includes("good afternoon") ||
-    q.includes("good evening")
-  ) {
-
-    return english
-      ? `
-        Hello! 👋
-        <br><br>
-        I'm <strong>VivaIA</strong>, the VivaCidade project assistant.
-        <br><br>
-        You can ask me about:
-        <br>👴 active aging;
-        <br>♿ inclusion;
-        <br>🚶 accessibility;
-        <br>🚌 urban mobility;
-        <br>🌳 city solutions.
-      `
-      : `
-        Olá! 👋
-        <br><br>
-        Sou a <strong>VivaIA</strong>, assistente do projeto VivaCidade.
-        <br><br>
-        Pode me perguntar sobre:
-        <br>👴 envelhecimento ativo;
-        <br>♿ inclusão;
-        <br>🚶 acessibilidade;
-        <br>🚌 mobilidade urbana;
-        <br>🌳 soluções para cidades.
-      `;
-  }
-
-  return english
-    ? `
-      That's a great question! 🤖
-      <br><br>
-      Within the project's theme, we can think about solutions involving
-      <strong>accessibility, active aging, inclusion, mobility, safety and quality public spaces</strong>.
-      <br><br>
-      Try asking:
-      <br>• "What is active aging?"
-      <br>• "How can we improve mobility?"
-      <br>• "What is accessibility?"
-      <br>• "How can we create an inclusive city?"
-    `
-    : `
-      Essa é uma ótima pergunta! 🤖
-      <br><br>
-      Dentro do tema do projeto, podemos pensar em soluções envolvendo
-      <strong>acessibilidade, envelhecimento ativo, inclusão, mobilidade, segurança e qualidade dos espaços públicos</strong>.
-      <br><br>
-      Tente perguntar, por exemplo:
-      <br>• "O que é envelhecimento ativo?"
-      <br>• "Como melhorar a mobilidade?"
-      <br>• "O que é acessibilidade?"
-      <br>• "Como criar uma cidade inclusiva?"
-    `;
+  return `
+    Posso ajudar com acessibilidade, inclusão, mobilidade,
+    problemas urbanos e ideias para melhorar a cidade.
+  `;
 }
+
 
 /* =====================================
-   ENVIO DO CHAT
+   ENVIO DA IA
 ===================================== */
 
-function sendQuestion(question) {
+if (chatForm && chatInput) {
 
-  if (!question.trim()) return;
+  chatForm.addEventListener("submit", event => {
 
-  addMessage(question, "user");
+    event.preventDefault();
 
-  chatInput.value = "";
+    const question =
+      chatInput.value.trim();
 
-  setTimeout(() => {
-
-    const response =
-      getAIResponse(question);
-
-    addMessage(response, "ai");
-
-  }, 500);
-}
-
-if (chatForm) {
-
-  chatForm.addEventListener(
-    "submit",
-    event => {
-
-      event.preventDefault();
-
-      sendQuestion(chatInput.value);
-
+    if (!question) {
+      return;
     }
-  );
+
+    addMessage(question, "user");
+
+    chatInput.value = "";
+
+    setTimeout(() => {
+
+      const response =
+        getAIResponse(question);
+
+      addMessage(response, "ai");
+
+    }, 500);
+
+  });
 
 }
 
-function setupQuickQuestions() {
 
-  document
-    .querySelectorAll(".quick-questions button")
-    .forEach(button => {
+/* =====================================
+   PERGUNTAS RÁPIDAS
+===================================== */
 
-      button.addEventListener("click", () => {
+document
+  .querySelectorAll(".quick-questions button")
+  .forEach(button => {
 
-        sendQuestion(
-          button.dataset.question
-        );
+    button.addEventListener("click", () => {
 
-      });
+      const question =
+        button.dataset.question ||
+        button.textContent;
+
+      if (chatInput) {
+        chatInput.value = question;
+        chatInput.focus();
+      }
 
     });
 
-}
+  });
 
-setupQuickQuestions();
 
 /* =====================================
    BOTÃO HERO → IA
 ===================================== */
 
-const heroAiBtn =
-  document.getElementById("heroAiBtn");
+const heroAIButton =
+  document.getElementById("heroAI");
 
-if (heroAiBtn) {
+if (heroAIButton) {
 
-  heroAiBtn.addEventListener("click", () => {
+  heroAIButton.addEventListener("click", () => {
 
-    document
-      .getElementById("ia")
-      .scrollIntoView({
+    const iaSection =
+      document.getElementById("ia");
+
+    if (iaSection) {
+
+      iaSection.scrollIntoView({
         behavior: "smooth"
       });
 
-    setTimeout(() => {
-
-      if (chatInput) {
-        chatInput.focus();
-      }
-
-    }, 700);
+    }
 
   });
 
 }
+
 
 /* =====================================
    ANIMAÇÕES
@@ -1624,80 +1129,76 @@ if (heroAiBtn) {
 
 const animatedElements =
   document.querySelectorAll(
-    ".feature-card, .info-card, .mobility-card, .problem-card, .solution, .indicator, .inclusion-item, .city-idea-card"
+    ".feature-card, .info-card, .mobility-card, .problem-card, .solution, .city-idea-card"
   );
 
-if ("IntersectionObserver" in window) {
+const observer =
+  new IntersectionObserver(
+    entries => {
 
-  const observer =
-    new IntersectionObserver(
-      entries => {
+      entries.forEach(entry => {
 
-        entries.forEach(entry => {
+        if (entry.isIntersecting) {
 
-          if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
 
-            entry.target.style.opacity = "1";
+        }
 
-            entry.target.style.transform =
-              "translateY(0)";
+      });
 
-            observer.unobserve(
-              entry.target
-            );
+    },
+    {
+      threshold: 0.12
+    }
+  );
 
-          }
 
-        });
+animatedElements.forEach(element => {
 
-      },
-      {
-        threshold: .12
-      }
-    );
+  element.style.opacity = "0";
+  element.style.transform = "translateY(20px)";
+  element.style.transition =
+    "opacity .6s ease, transform .6s ease";
 
-  animatedElements.forEach(element => {
+  observer.observe(element);
 
-    element.style.opacity = "0";
+});
 
-    element.style.transform =
-      "translateY(25px)";
-
-    element.style.transition =
-      "opacity .6s ease, transform .6s ease";
-
-    observer.observe(element);
-
-  });
-
-}
 
 /* =====================================
-   HEADER AO ROLAR
+   SOMBRA DO HEADER
 ===================================== */
 
-const header =
-  document.getElementById("header");
+window.addEventListener("scroll", () => {
 
-if (header) {
+  const header =
+    document.getElementById("header");
 
-  window.addEventListener("scroll", () => {
+  if (!header) {
+    return;
+  }
 
-    if (window.scrollY > 40) {
+  if (window.scrollY > 20) {
 
-      header.style.boxShadow =
-        "0 8px 30px rgba(16,35,31,.10)";
+    header.style.boxShadow =
+      "0 10px 30px rgba(0,0,0,.08)";
 
-    } else {
+  } else {
 
-      header.style.boxShadow =
-        "none";
+    header.style.boxShadow = "none";
 
-    }
+  }
 
-  });
+});
 
-}
+
+/* =====================================
+   CRIAR SEÇÃO DE IDEIAS
+===================================== */
+
+createCityIdeasSection();
+
 
 /* =====================================
    INICIAR IDIOMA
